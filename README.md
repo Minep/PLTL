@@ -13,8 +13,10 @@ Instrumentum rogandi verba latina instrumento Python aedificatum studio latino e
 + Ad flexi verborum rogandos
 + Ad verba similium rogandos
 
-## Mandatum
+## Mandata
 Creas nomine "apikey" pretio ab "OpenAI" si machina congitandae velis cogitare explicandos verborum.
 
-## Gratia
-Lunaixsky (Pulveris Lunaris)
+## Gratiae
++ Lunaixsky (Pulvis Lunaris)
+
++ [Online Latin Dictionary](https://www.online-latin-dictionary.com/)
