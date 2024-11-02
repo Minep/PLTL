@@ -4,7 +4,9 @@ import os
 
 class LatinEntry(BaseModel):
     expression: str
-    explain: str
+    explain_grammar: str
+    explain_semantic: str
+    explain_nuances: str
 
 class LatinResponse(BaseModel):
     entries: list[LatinEntry]
@@ -38,10 +40,11 @@ Each expression could be a word, a phrase or a sentence.
 If an expression is word and it's approximated grammar property may supplied in parenthesis for disambiguation.
 For each expression you will provide an explaination.
 Your explaination must meet the following requirements:
-    1. the semantic of each given expression.
-    2. the nuances of that expression.
-    3. explaination must signify the difference of that expression from others.
-Your explaination should organised naturally, as a whole paragraph, avoid listing.
+    1. the grammatical role of that expression.
+    2. the semantic of that expression.
+    3. the nuances of that expression.
+Your explaination must signify the difference of that expression from others.
+Your explaination should: organised naturally, avoid listing, short and concise
 If the expression is not a valid Classical Latin, explain why.
 """.strip()
             },

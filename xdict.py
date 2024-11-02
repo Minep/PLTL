@@ -14,8 +14,10 @@ class EntryNotFoundException(Exception):
 class LookupContext:
     def __init__(self, word, variant = ''):
         self.variant = variant
-        self.entry = f"https://www.online-latin-dictionary.com/latin-english-dictionary.php?parola={word}{variant}"
-        self.conj_url = f"https://www.online-latin-dictionary.com/latin-dictionary-flexion.php?parola={word}{variant}"
+
+        key = "parola" if not variant else "lemma"
+        self.entry = f"https://www.online-latin-dictionary.com/latin-english-dictionary.php?{key}={word}{variant}"
+        self.conj_url = f"https://www.online-latin-dictionary.com/latin-dictionary-flexion.php?{key}={word}{variant}"
 
     def get_entry(self):
         return LookupContext.get_html_object(self.entry)
@@ -197,7 +199,11 @@ class Ambiguity:
 
 class LatinDictEntry:
     def __init__(self, word, variant=''):
-        self.__context = LookupContext(word, variant)
+        if isinstance(word, LookupContext):
+            self.__context = word
+        else:
+            self.__context = LookupContext(word, variant)
+
         self.__candidates = []
         self.__conj_table = {}
         self.meaning = None

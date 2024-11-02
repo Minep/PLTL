@@ -181,10 +181,24 @@ def render_reverse(dict, formatter, render_explain=None):
 
 
 def render_expl_entry(ent, formatter):
+    formatter.append(bold("GRAMMAR"))
+    formatter.append()
+    formatter.appends(
+        textwrap.wrap(ent.explain_grammar, width=80)
+        , offset=1)
+    formatter.append()
+
     formatter.append(bold("SEMANTIC"))
     formatter.append()
     formatter.appends(
-        textwrap.wrap(ent.explain, width=80)
+        textwrap.wrap(ent.explain_semantic, width=80)
+        , offset=1)
+    formatter.append()
+
+    formatter.append(bold("NUANCES"))
+    formatter.append()
+    formatter.appends(
+        textwrap.wrap(ent.explain_nuances, width=80)
         , offset=1)
     formatter.append()
     
